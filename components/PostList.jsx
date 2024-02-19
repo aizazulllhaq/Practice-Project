@@ -1,11 +1,10 @@
-import { useContext } from "react"
 import Post from "./Post"
-import PostContext from "../context/PostContext"
+import usePosts from "../hooks/Posts"
 
 
 const PostList = ({ editPost }) => {
 
-    const Posts = useContext(PostContext);
+    const Posts = usePosts();
 
     return (
 

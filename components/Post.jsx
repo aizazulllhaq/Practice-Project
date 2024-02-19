@@ -1,12 +1,11 @@
 import { Card, CardContent, Typography, CardMedia } from '@mui/material';
 import Button from "@mui/material/Button";
 import "./Post.css"
-import { useContext } from 'react';
-import PostDispatchContext from '../context/PostDispatchContext';
+import usePostDispatch from '../hooks/PostDispatch';
 
 const Post = ({ id, title, description, editPost }) => {
 
-    const dispatch = useContext(PostDispatchContext);
+    const dispatch = usePostDispatch();
 
     return (
         <>
