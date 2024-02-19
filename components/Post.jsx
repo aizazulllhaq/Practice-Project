@@ -2,7 +2,7 @@ import { Card, CardContent, Typography, CardMedia } from '@mui/material';
 import Button from "@mui/material/Button";
 import "./Post.css"
 
-const Post = ({ id, title, description, dellPost, editPost }) => {
+const Post = ({ id, title, description, dispatch, editPost }) => {
 
     return (
         <>
@@ -26,10 +26,10 @@ const Post = ({ id, title, description, dellPost, editPost }) => {
                 <Button className="btn" variant="contained" color="primary" onClick={() => editPost(id)}>
                     Edit
                 </Button>&nbsp;&nbsp;&nbsp;
-                <Button variant="contained" color="primary" onClick={() => dellPost(id)}>
+                <Button variant="contained" color="primary" onClick={() => dispatch({ type: "DELETE", payload: id })}>
                     Delete
                 </Button>
-            </div>
+            </div >
 
         </>
     )

@@ -1,7 +1,7 @@
 import { TextField, Button, Grid, Container } from '@mui/material';
 import { useEffect, useState } from 'react';
 
-const NewPost = ({ getPost, editablePost, updatePost }) => {
+const NewPost = ({ dispatch, editablePost }) => {
 
     const [Post, setPost] = useState({ title: "", description: "" })
 
@@ -17,9 +17,9 @@ const NewPost = ({ getPost, editablePost, updatePost }) => {
     const handleSubmit = (e) => {
         e.preventDefault();
         if (editablePost) {
-            updatePost(Post)
+            dispatch({ type: "UPDATE", payload: Post })
         } else {
-            getPost(Post)
+            dispatch({ type: 'ADD', payload: Post })
         }
         setPost({ title: "", description: "" })
 
