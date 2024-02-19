@@ -1,16 +1,18 @@
-import { useState } from "react"
-import data from "../data/fakePostData"
+import { useContext } from "react"
 import Post from "./Post"
+import PostContext from "../context/PostContext"
 
 
-const PostList = ({ Posts, dispatch, editPost }) => {
+const PostList = ({ editPost }) => {
+
+    const Posts = useContext(PostContext);
 
     return (
 
         <div className="container">
             {
                 Posts.map((post) =>
-                    <Post key={post.id} title={post.title} description={post.description} dispatch={dispatch} editPost={editPost} id={post.id} />
+                    <Post key={post.id} title={post.title} description={post.description} editPost={editPost} id={post.id} />
                 )
             }
         </div>

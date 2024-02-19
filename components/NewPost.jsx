@@ -1,9 +1,11 @@
 import { TextField, Button, Grid, Container } from '@mui/material';
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
+import PostDispatchContext from '../context/PostDispatchContext';
 
-const NewPost = ({ dispatch, editablePost }) => {
+const NewPost = ({ editablePost }) => {
 
     const [Post, setPost] = useState({ title: "", description: "" })
+    const dispatch = useContext(PostDispatchContext);
 
     const handleChange = (e) => {
         setPost(

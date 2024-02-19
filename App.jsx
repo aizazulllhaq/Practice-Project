@@ -3,6 +3,8 @@ import './App.css'
 import NewPost from './components/NewPost'
 import PostList from './components/PostList'
 import data from './data/fakePostData';
+import PostContext from './context/PostContext';
+import PostDispatchContext from './context/PostDispatchContext';
 
 function App() {
 
@@ -35,11 +37,15 @@ function App() {
   }
 
   return (
-    <>
-      <h1>Welcome to React Practice Project</h1>
-      <NewPost dispatch={dispatch} editablePost={editablePost} />
-      <PostList Posts={Posts} dispatch={dispatch} editPost={editPost} />
-    </>
+    <PostContext.Provider value={Posts}>
+      <PostDispatchContext.Provider value={dispatch}>
+
+        <h1>Welcome to React Practice Project</h1>
+        <NewPost editablePost={editablePost} />
+        <PostList editPost={editPost} />
+
+      </PostDispatchContext.Provider>
+    </PostContext.Provider>
   )
 }
 
